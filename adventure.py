@@ -77,13 +77,14 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
         print(room[0])
         if room[1]:
+            print(f"You acquired a {room[1]}!")
             inventory = acquire_item(inventory, room[1])
         if room[2] == "puzzle":
             print("You encounter a puzzle!")
         elif room[2] == "trap":
-            print("You encounter a trap!")
+            print("You see a potential trap!")
         elif room[2] == "none":
-            print("This room is empty, nothing to do here.")
+            print("There doesn't seem to be a challenge in this room.")
         
         if room[2] != "none":
             action = input("Do you want to attempt the challenge? (yes/no): ").strip().lower()
